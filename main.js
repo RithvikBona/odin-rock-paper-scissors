@@ -1,6 +1,24 @@
 // 1 is rock, 2 is paper, 3 is scissors
 
+//window.onload = init;
+//function init() {
+const rButton = document.getElementById('rButton');
+const pButton = document.getElementById('pButton');
+const sButton = document.getElementById('sButton');
+const resultBox = document.getElementById('resultBox')
+const pScoreBox = document.getElementById('pScoreBox');
+const cScoreBox = document.getElementById('cScoreBox');
+const retryBtn = document.getElementById('retryBtn');
 
+rButton.addEventListener('click', () => round("Rock", getComputerChoice()));
+pButton.addEventListener('click', () => round("Paper", getComputerChoice()));
+sButton.addEventListener('click', () => round("Scissors", getComputerChoice()));
+retryBtn.addEventListener('click', () => retryGame());
+//startButton.addEventListener('click', () => {game(5)})
+//}
+
+let pScore = 0;
+let cScore = 0;
 
 function getComputerChoice() {
     let cChoice = Math.ceil(Math.random() * 3);
@@ -17,52 +35,49 @@ function getComputerChoice() {
     }
 }
 
+
+
 function round(pChoice, cChoice) {
+    //stop score above 5 when game ends
+    if(pScore === 5 || cScore === 5) {
+        return;
+    }    
+
+    let message = ``;
     if (pChoice.toLowerCase() === cChoice.toLowerCase()) {
-        return `Tie! ${cChoice} ties with ${cChoice}`;
+        message = `Tie! ${cChoice} ties with ${cChoice}`
     }
-    if ((pChoice === "Rock" && cChoice === "Paper") || (pChoice === "Paper" && cChoice === "Scissors") || (pChoice === "Scissors" && cChoice === "Rock")) {
-        return `You Lose! ${cChoice} beats ${pChoice}`;
-    }
-    return `You Win! ${pChoice} beats ${cChoice}`;
-}
-
-function getInput() {
-    let pChoice = prompt("Enter Your Selection (Rock, Paper, or Scissors):").toLowerCase();
-    if (pChoice === "rock" || pChoice === "scissors" || pChoice === "paper") {
-        pChoice = pChoice.slice(0, 1).toUpperCase() + pChoice.slice(1);
-        return pChoice;
-    }
-    console.log("Invalid Input! Try Again")
-    return getInput();
-}
-function retryGame() {
-    let replay = prompt("Would you like to play again? (Y/N)").toLowerCase();
-
-    if (replay === "y") {
-
-        let numRounds = null;
-
-        while (true) {
-            numRounds = Number(prompt("How many rounds?"));
-            if (typeof (numRounds) === "number" && numRounds > 0) { break; }
-            console.log("Not a valid number, try again")
-        }
-        return numRounds;
-
-
-    } else if (replay === "n") {
-        console.log("Goodbye, thank you for playing!");
-        return null;
+    else if ((pChoice === "Rock" && cChoice === "Paper") || (pChoice === "Paper" && cChoice === "Scissors") || (pChoice === "Scissors" && cChoice === "Rock")) {
+        message = `You Lose! ${cChoice} beats ${pChoice}`;
+        cScoreBox.textContent = `Computer Score: ${++cScore}`;
+        
     } else {
-        console.log("Invalid Input! Try Again");
-        return retryGame();
+        message = `You Win! ${pChoice} beats ${cChoice}`;
+        pScoreBox.textContent = `Player Score: ${++pScore}`;
     }
+    
+
+    if(pScore === 5) {
+        message = `Congratulations, You Won!`
+    } else if (cScore === 5) {
+        message = `Sorry, You Lost!`;
+    }
+    resultBox.textContent = message;
+}
+
+
+function retryGame() {
+    cScore = 0;
+    pScore = 0;
+    cScoreBox.textContent = `Computer Score: ${cScore}`;
+    pScoreBox.textContent = `Player Score: ${pScore}`;
+    resultBox.textContent = 'Pick Rock, Paper, or Scissors to Start The Game';
 }
 
 
 
 
+/*
 function game(rounds) {
     let pScore = 0;
     let cScore = 0;
@@ -99,14 +114,21 @@ function game(rounds) {
 
 
 }
+*/
 
 //makes sure that can use button to start game
-window.onload = init;
-function init() {
-    const startButton = document.getElementById('startButton');
-    startButton.addEventListener('click', () => {game(5)})
-}
+
 //const startButton = document.getElementById('#startButton');
 
-
+/*
+function getInput() {
+    let pChoice = prompt("Enter Your Selection (Rock, Paper, or Scissors):").toLowerCase();
+    if (pChoice === "rock" || pChoice === "scissors" || pChoice === "paper") {
+        pChoice = pChoice.slice(0, 1).toUpperCase() + pChoice.slice(1);
+        return pChoice;
+    }
+    console.log("Invalid Input! Try Again")
+    return getInput();
+}
+*/
 
