@@ -32,6 +32,9 @@
     align-content: space-between;
     gap: 50px;
     margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-wrap: wrap;
 }
 
 .im {
@@ -42,6 +45,7 @@
 #title {
     font-size: 64px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    justify-self: center;
 }
 
 #resultBox {
@@ -82,8 +86,10 @@
 
 .txt2 {
     color: aliceblue;
+    text-align: center;
 }
 
 .txt3 {
     color: rgb(180, 179, 221);
+    text-align: center;
 }
