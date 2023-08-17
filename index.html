@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <script src="main.js" defer></script>
+
 <body>
-    <h1>Rock Paper Scissors!</h1>
-    <button id="rButton">ROCK</button>
-    <button id="pButton">PAPER</button>
-    <button id="sButton">SCISSORS</button>
-    <div id="resultBox">Pick Rock, Paper, or Scissors to Start The Game</div>
-    <div id="pScoreBox">Player Score: 0</div>
-    <div id="cScoreBox">Computer Score: 0</div>
-    <button id="retryBtn">Restart</button>
+
+    <div id="page">
+        <h1 id="title" class="txt3">Rock Paper Scissors!</h1>
+        <div id="buttonChoices">
+            <button id="rButton" class="cBtn"> <img class="im" src="images/rockImage.png"> </button>
+            <button id="pButton" class="cBtn"><img class="im" src="images/paperImage.png"></button>
+            <button id="sButton" class="cBtn"><img class="im" src="images/scissorsIm.png"></button>
+        </div>
+        <div id="resultBox" class="txt2">Pick Rock, Paper, or Scissors to Start The Game</div>
+        <div id="scores">
+            <div id="pScoreBox" class="txt">Player Score: 0</div>
+            <div id="cScoreBox" class="txt">Computer Score: 0</div>
+        </div>
+        <button id="retryBtn">Restart</button>
+    </div>
+
 </body>
+
 </html>

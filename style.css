@@ -1,0 +1,89 @@
+#page {
+    background-color: royalblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#buttonChoices {
+    display: flex;
+}
+
+.cBtn {
+    background-color: honeydew;
+    padding: 20px;
+    border-radius: 15px;
+    border: 5px solid saddlebrown;
+    transition-duration: 0.8s;
+}
+
+.cBtn:hover {
+    background-color: palegoldenrod;
+}
+
+.im {
+    width: 200px;
+    height: 200px;
+}
+
+#buttonChoices {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.im {
+    justify-self: center;
+    align-self: center;
+}
+
+#title {
+    font-size: 64px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#resultBox {
+    font-size: 32px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#scores {
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#pScoreBox, #cScoreBox {
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#retryBtn {
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: lightgreen;
+    color: black;
+    margin-bottom: 100px;
+    padding: 12px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+#retryBtn:hover {
+    background-color: green;
+    color: antiquewhite;
+}
+
+.txt {
+    color: antiquewhite;
+}
+
+.txt2 {
+    color: aliceblue;
+}
+
+.txt3 {
+    color: rgb(180, 179, 221);
+}
